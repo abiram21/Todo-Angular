@@ -1,0 +1,37 @@
+
+<div class=" form-row">
+    <form class= form [formGroup]= "form" novalidate (ngSubmit) = "onSubmit()">
+<div class="example-container">
+    <mat-form-field>
+      <input formControlName="title" matInput placeholder="Title">
+      <mat-error *ngIf="form.get('title').hasError('required')">You must enter a title</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <textarea formControlName="description" matInput placeholder="Description"></textarea>
+      <mat-error *ngIf="form.get('description').hasError('required')">You must enter the description</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input formControlName="dueDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('dueDate').hasError('required')">You must select a due date</mat-error>
+      </mat-form-field>
+  
+    <mat-form-field>
+      <mat-select formControlName="priority" placeholder="Priority">
+        <mat-option value="High">High</mat-option>
+        <mat-option value="Medium">Medium</mat-option>
+        <mat-option value="Low">Low</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('priority').hasError('required')">You must select the priority</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="button-row">
+           
+    <button  mat-raised-button type="submit"  >Submit</button>
+    <button  mat-raised-button type="reset" >Cancel</button>
+  </div>
+</form>
+</div> 
