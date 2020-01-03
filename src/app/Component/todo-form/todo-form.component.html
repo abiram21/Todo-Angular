@@ -1,4 +1,4 @@
-
+<body class="body">
 <div class=" form-row">
     <form class= form [formGroup]= "form" novalidate (ngSubmit) = "onSubmit()">
 <div class="example-container">
@@ -27,11 +27,21 @@
       </mat-select>
       <mat-error *ngIf="form.get('priority').hasError('required')">You must select the priority</mat-error>
     </mat-form-field>
+
+    <mat-form-field *ngIf="flag">
+      <mat-select formControlName="status" placeholder="Status">
+        <mat-option value="Completed">Completed</mat-option>
+        <mat-option value="Incomplete">Incomplete</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('status').hasError('required')">You must select the status</mat-error>
+    </mat-form-field>
   </div>
   <div class="button-row">
            
-    <button  mat-raised-button type="submit"  >Submit</button>
-    <button  mat-raised-button type="reset" >Cancel</button>
+    <button  mat-raised-button type="submit" *ngIf="!flag" >Submit</button>
+    <button  mat-raised-button type="reset" *ngIf="!flag" >Cancel</button>
+    <button  mat-raised-button (click)= "onEdit()" *ngIf="flag">Update</button>
   </div>
 </form>
 </div> 
+</body>

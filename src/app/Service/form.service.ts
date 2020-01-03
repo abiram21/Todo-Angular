@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,13 @@ import { Router } from '@angular/router';
 export class FormService {
 
   constructor(private http: HttpClient, private router: Router) { }
+
+  editTodoArray$ = new BehaviorSubject<any>({});
+
+  setEditTodotArray(data)
+  {
+    this.editTodoArray$.next(data);
+  }
 
   getTodo()
   {
@@ -21,6 +29,7 @@ export class FormService {
      description: form.description,
      dueDate: form.dueDate,
      priority: form.priority,
+     status: form.status
    };
    return this.http.post<any>('http://localhost:8000/api/todo', data);
  }
@@ -31,6 +40,7 @@ export class FormService {
      description: form.description,
      dueDate: form.dueDate,
      priority: form.priority,
+     status: form.status
  
 
    };

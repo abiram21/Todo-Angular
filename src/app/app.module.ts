@@ -19,6 +19,10 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { ToastrModule } from 'ngx-toastr';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './Component/dialog/dialog.component';
+
 
 
 @NgModule({
@@ -26,6 +30,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AppComponent,
     TodoFormComponent,
     DisplayComponent,
+    DialogComponent,
    
     
   ],
@@ -43,7 +48,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ReactiveFormsModule,
     MatButtonModule,
     ToastrModule.forRoot(),
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    DialogComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
