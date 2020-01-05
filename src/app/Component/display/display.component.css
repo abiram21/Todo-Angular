@@ -1,8 +1,86 @@
-.example-card {
-    width: 350px;
-    height: 400px;
-    display: block;
-    margin-left:auto;
-    margin-right:auto;  
- 
+.body
+  {
+   background: url('/assets/asset/img/2.jpg'); 
+   background-repeat: no-repeat;
+    overflow:hidden;
+    overflow-y: auto;
+  
   }
+  .example-card
+  {
+      left: 800px;
+      right: 300px;
+      max-width: 35%;
+      margin-bottom: 20px;
+      border-radius: 5px;
+  }
+  .row
+  {
+    margin-bottom: 10px;
+  }
+  .asd
+  {
+    color: #49D2A9;
+  }
+  .h1Style{
+    padding-left: 800px;
+    color: #FE0133;
+  }
+  .h2Style{
+    padding-left: 800px;
+    color: #2B7B13;
+  }
+  
+ 
+ .checkbox{
+   left:300px;
+ }
+ .btn1 {
+  background-color: #153397 ;
+ 
+  border-color: D292CC;
+  color: #C8C6C6;
+  padding: 2px 20px;
+  display: inline;
+  
+  font-size: 20px;
+  
+  font-weight: bold;
+}   
+
+.btn2 {
+  background-color: #C40D0D;
+ 
+  border-color: D292CC;
+  color: #C8C6C6;
+  padding: 2px 12px;
+  display: inline;
+  
+  font-size: 20px;
+  
+  font-weight: bold;
+}
+.button-row button,
+.button-row a {
+  margin-right: 15px;
+  
+  
+}
+.button-row{
+  padding-left:200px;
+}
+.addTodo{
+  left:400px;
+  top:200px;
+  background-color: #2B7B13;
+ 
+  border-color: D292CC;
+  color: #C8C6C6;
+  padding: 2px 12px;
+  display: inline;
+  
+  font-size: 20px;
+  
+  font-weight: bold;
+}
+

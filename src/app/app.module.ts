@@ -22,6 +22,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './Component/dialog/dialog.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
@@ -50,7 +51,8 @@ import { DialogComponent } from './Component/dialog/dialog.component';
     ToastrModule.forRoot(),
     MatSnackBarModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule
   ],
   entryComponents: [
     DialogComponent,

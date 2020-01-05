@@ -1,4 +1,7 @@
 <body class="body">
+  <h1 *ngIf="!flag">ADD TODO</h1>
+  <h1 *ngIf="flag">UPDATE TODO</h1>  
+
 <div class=" form-row">
     <form class= form [formGroup]= "form" novalidate (ngSubmit) = "onSubmit()">
 <div class="example-container">
@@ -13,7 +16,7 @@
     </mat-form-field>
 
     <mat-form-field>
-        <input formControlName="dueDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <input formControlName="dueDate" [min]="minDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngIf="form.get('dueDate').hasError('required')">You must select a due date</mat-error>
@@ -38,9 +41,9 @@
   </div>
   <div class="button-row">
            
-    <button  mat-raised-button type="submit" *ngIf="!flag" >Submit</button>
-    <button  mat-raised-button type="reset" *ngIf="!flag" >Cancel</button>
-    <button  mat-raised-button (click)= "onEdit()" *ngIf="flag">Update</button>
+    <button  mat-raised-button class="btn1" type="submit" *ngIf="!flag" >Submit</button>
+    <button  mat-raised-button type="reset" class="btn2" *ngIf="!flag" >Cancel</button>
+    <button  mat-raised-button class="btn3" (click)= "onEdit()" *ngIf="flag">Update</button>
   </div>
 </form>
 </div> 

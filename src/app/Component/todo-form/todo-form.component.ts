@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class TodoFormComponent implements OnInit {
   public form: FormGroup;
   flag = this.route.snapshot.queryParams['isEdit'];
+  minDate = new Date();
   constructor( private fb: FormBuilder,private router: Router,private todoService:FormService, 
     private toastr: ToastrService,
     private route: ActivatedRoute,) { }
