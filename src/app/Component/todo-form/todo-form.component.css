@@ -26,7 +26,7 @@
     margin-bottom: 20px;
   }
 
-  .btn1 {
+  .btnSub {
     background-color: #2B7B13 ;
    
     border-color: D292CC;
@@ -39,8 +39,8 @@
     font-weight: bold;
   }   
   
-  .btn2 {
-    background-color: #C40D0D;
+  .btnClr {
+    background-color: #750CDE;
    
     border-color: D292CC;
     color: #C8C6C6;
@@ -51,7 +51,7 @@
     
     font-weight: bold;
   }
-  .btn3 {
+  .btnUpdate {
     background-color: #153397;
     border-color: D292CC;
     color: #C8C6C6;

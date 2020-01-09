@@ -1,0 +1,35 @@
+<body class="body">
+  <h1>Register</h1>
+  <form class="example-form" [formGroup]='form'>
+
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter your full name" formControlName="name">
+        <mat-error *ngIf="form.get('email').hasError('required')">You must enter the email</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="form.get('email').hasError('required')">You must enter the email</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password" type="password" formControlName="password">
+        <mat-error *ngIf="form.get('password').hasError('required')">You must enter the password</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="button-row">
+      <div mat-dialog-actions>
+        <button mat-raised-button (click)="onsubmit()">Register</button>
+        <button mat-raised-button [mat-dialog-close]="true">Cancel</button>
+      </div>
+    </div>
+  </form>
+  <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+
+</body>

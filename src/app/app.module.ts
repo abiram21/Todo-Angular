@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +23,14 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './Component/dialog/dialog.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
+import {MatExpansionModule} from '@angular/material/expansion';
+import { RegistrationComponent } from './Component/registration/registration.component';
+import { LoginComponent } from './Component/login/login.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { JwtModule } from '@auth0/angular-jwt';
+import { HeaderComponent } from './Component/header/header.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { TokenInterceptor } from './Interceptor/token.interceptor';
 
 
 @NgModule({
@@ -32,8 +39,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     TodoFormComponent,
     DisplayComponent,
     DialogComponent,
-   
-    
+    RegistrationComponent,
+    LoginComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,12 +60,29 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSnackBarModule,
     MatCardModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatExpansionModule,
+    MatProgressSpinnerModule,
+    MatToolbarModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function  tokenGetter() {
+             return localStorage.getItem('access_token'); },
+        whitelistedDomains: ['localhost:3000'],
+        blacklistedRoutes: ['http://localhost:3000/auth/login']
+      }
+    })
   ],
   entryComponents: [
     DialogComponent,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

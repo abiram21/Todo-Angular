@@ -1,10 +1,10 @@
 <body class="body">
 <button  mat-raised-button class="addTodo" (click)= "addTodo()" >Add a New Task</button>
-
+<button  mat-raised-button class="addTodo" (click)= "logout()" >Logout</button>
 <div class = "row">
 
 <div class=" col-md-3">
-  <h2 class="h1Style">To Be Completed</h2>
+  <h2 class="h1Style" >To Be Completed</h2>
 <mat-card class="example-card" *ngFor = "let todo of uncompleteArray">
  
     <mat-card-header>
@@ -18,7 +18,7 @@
           
       </div>
       <div class = "row">
-        <a class="asd">Due Date : </a>   {{todo.dueDate}}
+        <a class="asd">Due Date : </a>   {{todo.dueDate | date : 'medium' }}
         
     </div>
     <div class = "row">
@@ -48,7 +48,7 @@
   <mat-card class="example-card" *ngFor = "let todo of completeArray">
     <mat-card-header>
       <mat-card-title>{{todo.title}}</mat-card-title>
-     
+      <mat-checkbox class="checkbox" [checked]="true" (click) = "markUnDone(todo)" value="{{todo.id}}">Mark as Undone</mat-checkbox>
     </mat-card-header>
     <mat-card-content>
       <div class = "row">
@@ -57,7 +57,7 @@
           
       </div>
       <div class = "row">
-        <a class="asd">Due Date : </a>   {{todo.dueDate}}
+        <a class="asd">Due Date : </a>   {{todo.dueDate | date : 'medium'  }}
         
     </div>
     <div class = "row">
