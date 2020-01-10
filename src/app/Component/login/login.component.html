@@ -1,4 +1,7 @@
 <body class= "body">
+  <div *ngIf="jwtService.showErrorMessage">
+    <h1>Invalid username and password Please try again</h1>
+  </div>
     <mat-card class="example-card">
           <mat-card-header>
             <mat-card-title>Login</mat-card-title>
@@ -8,10 +11,11 @@
               <table class="example-full-width" cellspacing="0">
                 <tr>
                   <td>
+                   
                     <mat-form-field class="example-full-width">
                     <input matInput placeholder="Email"  name="username" formControlName="email">
                     <mat-error *ngIf="form.get('email').hasError('required')">You must enter the email</mat-error>
-    
+                    <mat-error *ngIf="form.get('email').hasError('email')">Enter a valid email</mat-error>
                     </mat-form-field>
                   </td>
                 </tr>
@@ -24,7 +28,7 @@
               </tr></table>
               <div class="button-row">
               <button mat-raised-button type="submit" >Login</button>
-              <button mat-raised-button type="reset" >Cancel</button>
+              <button mat-raised-button type="reset" >Reset</button>
               </div>
             </form>
             <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>

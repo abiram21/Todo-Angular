@@ -7,7 +7,6 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class JwtService {
-
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
   login(form) {
@@ -15,12 +14,8 @@ export class JwtService {
       email: form.email,
       password: form.password,
     };
-    return this.http.post<{ access_token: string }>('http://localhost:8000/api/login', data).subscribe(res => {
-      console.log(res.access_token);
-      localStorage.setItem('access_token', res.access_token);
-      this.router.navigate(['/view']);
-    });
-  }
+    return this.http.post<{ access_token: string }>('http://localhost:8000/api/login', data);
+    }
 
   public get loggedIn(): boolean {
     return localStorage.getItem('access_token') !== null;
@@ -43,7 +38,7 @@ export class JwtService {
     return this.http.post<{ access_token: string }>('http://localhost:8000/api/register', data).subscribe(res => {
       console.log(res.access_token);
       this.toastr.success('Login please!', 'Registration Success!',
-      { timeOut: 2000 });
+        { timeOut: 2000 });
     });
   }
 }

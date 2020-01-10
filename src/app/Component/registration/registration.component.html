@@ -5,7 +5,9 @@
     <div class="form-group">
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Enter your full name" formControlName="name">
-        <mat-error *ngIf="form.get('email').hasError('required')">You must enter the email</mat-error>
+        <mat-error *ngIf="form.get('name').hasError('required')">You must enter the email</mat-error>
+        <mat-error *ngIf="form.get('name').hasError('pattern')">Enter a valid name</mat-error>
+
       </mat-form-field>
     </div>
 
@@ -13,6 +15,7 @@
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Email" formControlName="email">
         <mat-error *ngIf="form.get('email').hasError('required')">You must enter the email</mat-error>
+        <mat-error *ngIf="form.get('email').hasError('email')">Enter a valid email</mat-error>
       </mat-form-field>
     </div>
 

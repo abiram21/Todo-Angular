@@ -11,14 +11,14 @@ import { RegistrationComponent } from '../registration/registration.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private jwtService: JwtService, private dialog: MatDialog) {   }
-  flag = this.jwtService.loggedIn;
+  constructor(public jwtService: JwtService, private dialog: MatDialog) {   }
+  // flag = this.jwtService.loggedIn;
   ngOnInit() {
 
   }
   logout() {
     this.jwtService.logout();
-    this.flag = this.jwtService.loggedIn;
+    // this.flag = this.jwtService.loggedIn;
   }
 
   openDialog(): void {
