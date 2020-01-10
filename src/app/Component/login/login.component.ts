@@ -33,7 +33,8 @@ onsubmit() {
       this.toastr.error('Try again!', 'Invalid Login!',
         { timeOut: 2000 });
       this.showErrorMessage = true;
-      this.ngOnInit();
+     this.form.get('email').setValue('');
+     this.form.get('password').setValue('');
     });
   }
 }
